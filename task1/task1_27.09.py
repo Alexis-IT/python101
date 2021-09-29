@@ -4,6 +4,12 @@ from collections import Counter
 
 
 def enter_number():
+    '''Validate entered numbers
+
+    Checks whether the input is an integer number greater than 0.
+    Warning user if it is not true and asks to write the number again.
+    '''
+   
     check = False
 
     while check == False:
@@ -13,14 +19,16 @@ def enter_number():
             n = int(input())
             check = True
             if n<=0:
-                print('You should enter only integer number greater than 0')
+                print('ATTENTION: You should enter only integer number greater than 0. \n')
                 check = False
         except Exception:
-            print('You should enter only integer number')
+            print('ATTENTION: You should enter only integer number. \n')
             check = False   
     return n
 
 def sorted_random_list(n):
+    ''' Create sorted list which lenght is "n". Elements of list are integers numbers.'''
+
     list_n = [random.randint(0,1000) for i in range(n)]
     list_n.sort()
     return list_n
@@ -28,34 +36,36 @@ def sorted_random_list(n):
 
 
 def get_list_of_even(list_of_numbers):
+    ''' Gets list of even numbers from input list of integer numbers.'''
+
     inner_even_list = []
     for i in list_of_numbers:
-        if i%2 == 0:
+        if i%2 == 0:                             # check if number is even
             inner_even_list.append(i)
     return inner_even_list
 
 
-def get_list_of_odd(list_of_numbers1,list_of_numbers2):
-    diff = Counter(list_of_numbers1)
-    diff.subtract(Counter(list_of_numbers2))
+def get_list_of_odd(list_of_numbers1):
+    ''' Gets list of odd numbers from input list.'''
+
+    diff = Counter(list_of_numbers1)                              # Create dictionary with  the count of each element
+    diff.subtract(Counter(get_list_of_even(list_of_numbers1)))    # From generated list exclude elements which are even
     return list(diff.elements())
 
   
-def main():
+def run():
     average_even = average_odd = 0
     list_lenght = enter_number()
     user_list_of_numbers = sorted_random_list(list_lenght)
     list_of_even = get_list_of_even(user_list_of_numbers)
-    list_of_odd=get_list_of_odd(user_list_of_numbers,list_of_even)
+    list_of_odd=get_list_of_odd(user_list_of_numbers)
 
-    '''
-    #uncoment this part for check lists
+    # # Uncoment these parts for show:
+    #print('sort list:', user_list_of_numbers)   # generated list 
+    #print('even part:', list_of_even)           # list of even elements from generated list
+    #print('odd part', list_of_odd)              # list of odd elements from generated list
 
-    print('sort list:', user_list_of_numbers)
-    print('even part:', list_of_even)
-    print('odd part', list_of_odd)
-    '''
-
+    # Cath cases when even/odd numbers don't exist in list
     if len(list_of_even) == 0:
         print("Even numbers didn't find")
     else:
@@ -69,5 +79,5 @@ def main():
         print('average_odd = ', average_odd)
 
 if __name__ == '__main__':
-    main()
+    run()
 
