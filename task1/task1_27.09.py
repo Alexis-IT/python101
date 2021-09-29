@@ -36,7 +36,7 @@ def sorted_random_list(n):
 
 
 def get_list_of_even(list_of_numbers):
-    ''' Gets list of even numbers from input list of integer numbers.'''
+    ''' Get list of even numbers from input list of integer numbers.'''
 
     inner_even_list = []
     for i in list_of_numbers:
@@ -46,7 +46,7 @@ def get_list_of_even(list_of_numbers):
 
 
 def get_list_of_odd(list_of_numbers1):
-    ''' Gets list of odd numbers from input list.'''
+    ''' Get list of odd numbers from input list.'''
 
     diff = Counter(list_of_numbers1)                              # Create dictionary with  the count of each element
     diff.subtract(Counter(get_list_of_even(list_of_numbers1)))    # From generated list exclude elements which are even
@@ -54,6 +54,8 @@ def get_list_of_odd(list_of_numbers1):
 
   
 def run():
+    '''The main function'''
+    
     average_even = average_odd = 0
     list_lenght = enter_number()
     user_list_of_numbers = sorted_random_list(list_lenght)
