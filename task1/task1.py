@@ -27,7 +27,7 @@ def enter_number():
     return n
 
 def sorted_random_list(n):
-    ''' Create sorted list which lenght is "n". Elements of list are integers numbers.'''
+    ''' Create sorted list which lenght is "n". Elements of list are integer numbers.'''
 
     list_n = [random.randint(0,1000) for i in range(n)]
     list_n.sort()
@@ -46,7 +46,7 @@ def get_list_of_even(list_of_numbers):
 
 
 def get_list_of_odd(list_of_numbers1):
-    ''' Get list of odd numbers from input list.'''
+    ''' Get list of odd numbers from input list of integer numbers.'''
 
     diff = Counter(list_of_numbers1)                              # Create dictionary with  the count of each element
     diff.subtract(Counter(get_list_of_even(list_of_numbers1)))    # From generated list exclude elements which are even
@@ -83,3 +83,4 @@ def run():
 if __name__ == '__main__':
     run()
 
+    
