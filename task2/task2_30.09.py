@@ -1,5 +1,7 @@
 import random
-from random import randint   # Why need write this part? with import random - doesn't work
+import string
+from string import ascii_lowercase
+from random import randint, choice   # Why need write this part? with import random - doesn't work
 
 
 # Q1 How much pairs should exist in dict?
@@ -10,17 +12,22 @@ from random import randint   # Why need write this part? with import random - do
 
 
 def generate_random_dict():
-
-    numb_pairs = random.randint(2,5)             # How much pairs should exist in dict?
+    ''' Generate dictionary with random number of pairs.
     
-    key_values=['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
-    inner_dict= { key_values[randint(0, 25)]: randint(0, 100) for i in range(numb_pairs)}
+        Key: random lowercase latin letter
+        Value: random integer number in range from 0 to 100
+    '''
+
+    numb_pairs = random.randint(1,26)             # As exist 26 letter, we can have from 1 to 26 pairs in dict.
+         
+    # # Alternative way for generate list of dict   
+    #key_values=['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
+    #inner_dict= { key_values[randint(0, 25)]: randint(0, 100) for i in range(numb_pairs)}
     
-    # # Alternative way for generate list of dict
+    inner_dict = {}
 
-    # import string
-    # inner_dict= {choice(ascii_lowercase): randint(0, 100) for i in range(numb_pairs)}
-
+    while len(inner_dict) < numb_pairs:                                  # Generated keys for dict should be unique
+        inner_dict.update({choice(ascii_lowercase): randint(0, 100)})
     
     return inner_dict
 
