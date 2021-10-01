@@ -16,14 +16,11 @@ def generate_random_dict():
     key_values=['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
     inner_dict= { key_values[randint(0, 25)]: randint(0, 100) for i in range(numb_pairs)}
     
-    # # Alternative ways for generate list of dict
+    # # Alternative way for generate list of dict
 
     # import string
     # inner_dict= {choice(ascii_lowercase): randint(0, 100) for i in range(numb_pairs)}
-    # Dict_in = dict(zip(string.ascii_lowercase, range(1, 27)))
-    # Dict_in = dict(zip('abcdefghijklmnopqrstuvwxyz', range(1, 27)))
-    # from random import randint, choice
-    # inner_dict= {choice(ascii_lowercase): randint(0, 100) for i in range(numb_pairs)}
+
     
     return inner_dict
 
@@ -36,15 +33,21 @@ def list_of_dict():
     return list_of_random_dict
 
 def dictionary_from_list(inner_list):
-    inner_dict = {}
+    inner_dict_list = {}
     for dict_from_list in inner_list:
         for x, y in dict_from_list.items():
+            inner_dict_list[x]=y
 
-            # HERE SHOULD BE CODE !!!!!!!!!!!! 
-            inner_dict[x]=y
-             
-
-    return inner_dict
+    new_dict={}
+    for dict_from_list in inner_list:
+        for k, v in dict_from_list.items():
+            for w, z in inner_dict_list.items():
+                if w == k and v > z:
+                    new_dict[k] = v                   # HERE SHOULD BE CODE !!!!!!!!!!!! 
+                else:
+                    new_dict[w] = z
+                
+    return new_dict
 
 
 
