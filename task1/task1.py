@@ -62,10 +62,9 @@ def run():
     list_of_even = get_list_of_even(user_list_of_numbers)
     list_of_odd=get_list_of_odd(user_list_of_numbers)
 
-    # # Uncoment these parts for show:
-    #print('sort list:', user_list_of_numbers)   # generated list 
-    #print('even part:', list_of_even)           # list of even elements from generated list
-    #print('odd part', list_of_odd)              # list of odd elements from generated list
+    print('sorted list:', user_list_of_numbers)   # generated list 
+    print('even part:', list_of_even)           # list of even elements from generated list
+    print('odd part', list_of_odd)              # list of odd elements from generated list
 
     # Cath cases when even/odd numbers don't exist in list
     if len(list_of_even) == 0:
