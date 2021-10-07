@@ -26,7 +26,7 @@ def normalize_letter_cases(some_text):
 # # Alternative way for normalize_letter_cases(a)
 
 # def normalize_letter_cases(some_text):
-#     ''' Normalize input text from letter cases point of view. Sentences will be trimmed'''
+#     ''' Normalize input text from letter cases point of view. Spaces are saved'''
 
 #     result_text = some_text.lower()
 #     inner_text = result_text.split('.')                         
