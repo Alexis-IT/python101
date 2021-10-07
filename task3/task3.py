@@ -23,6 +23,36 @@ def normalize_letter_cases(some_text):
     
     return normalize_text
 
+# # Alternative way for normalize_letter_cases(a)
+
+# def normalize_letter_cases(some_text):
+#     ''' Normalize input text from letter cases point of view. Sentences will be trimmed'''
+
+#     result_text = some_text.lower()
+#     inner_text = result_text.split('.')                         
+#     normalize_text = ''
+
+#     key = 0                             # index of empty list element
+#     for sentence in inner_text:
+#         if(sentence == ''):             #if we have empty list element
+#             inner_text.pop(key)
+#             key = key + 1
+#             continue
+#         key = key + 1
+
+#         k=0
+#         while sentence[k].isspace():       
+#             k = k + 1                     # find first letter in sentence
+#         fix_text = sentence[:k] + sentence[k].capitalize() + sentence[k+1:]
+
+#         #if fix_text != "":                              
+#         normalize_text = normalize_text + fix_text + '. '
+#     normalize_text = normalize_text [:-1]
+    
+#     return normalize_text
+
+
+
 def sentence_with_last_words(some_text):
     ''' Create sentence with last words of each existing sentence in input text '''
     inner_text = some_text.split('.')
